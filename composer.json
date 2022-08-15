@@ -1,5 +1,5 @@
 {
-    "name": "kveldhuis/seo-meta-nova-field",
+    "name": "kveldhuis/seo-meta-field-nova",
     "description": "A Laravel Nova field which adds all SEO related meta fields to an Resource.",
     "license": "MIT",
     "type": "library",
