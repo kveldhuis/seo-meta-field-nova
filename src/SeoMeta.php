@@ -143,7 +143,7 @@ class SeoMeta extends Field
 
         if($model->id){
             if(!$relationship->seo_metaable_type){
-                $relationship->seo_metaable_type = get_class($model);
+                $relationship->seo_metaable_type = $model->getMorphClass();
                 $relationship->seo_metaable_id = $model->id;
                 $has_change = true;
             }
