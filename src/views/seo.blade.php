@@ -11,6 +11,11 @@ if (isset($page) && $page && method_exists($page, 'getSeoMeta')) {
     ];
 }
 
+$keywords = '';
+if ($page->tagsWithType('keyword')) {
+    $keywords = $page->tagsWithType('keyword')->pluck('name')->implode(', ');
+}
+
 if(!empty($seo['params'])){
     if(!empty($seo['params']->title_format)){
         $seo['title'] = str_replace(':text', $seo['title'], $seo['params']->title_format);
@@ -27,7 +32,7 @@ if(!empty($seo['params'])){
     @endif
 
     @if(isset($seo['keywords']) && $seo['keywords'])
-    <meta name="keywords" content="{{ $seo['keywords'] }}" />
+    <meta name="keywords" content="{{ $seo['keywords'] . ', ' . $keywords }}" />
     @endif
 
     <meta property="og:title" content="{{ $seo['title'] }}" />
