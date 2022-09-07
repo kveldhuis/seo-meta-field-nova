@@ -12,7 +12,7 @@ if (isset($page) && $page && method_exists($page, 'getSeoMeta')) {
 }
 
 $keywords = '';
-if ($page->tagsWithType('keyword')) {
+if (in_array(\Spatie\Tags\HasTags::class, class_uses_recursive($page::class)) && $page->tagsWithType('keyword')) {
     $keywords = $page->tagsWithType('keyword')->pluck('name')->implode(', ');
 }
 
